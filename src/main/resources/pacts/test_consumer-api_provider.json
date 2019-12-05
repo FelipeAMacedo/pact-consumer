@@ -1,0 +1,186 @@
+{
+  "provider": {
+    "name": "api_provider"
+  },
+  "consumer": {
+    "name": "test_consumer"
+  },
+  "interactions": [
+    {
+      "description": "retrieving article data",
+      "request": {
+        "method": "GET",
+        "path": "/v1/provider/a"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "result": "from",
+          "provider": "yes"
+        },
+        "matchingRules": {
+          "body": {
+            "$.result": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.provider": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Pact for Issue 313"
+        }
+      ]
+    },
+    {
+      "description": "retrieving article data",
+      "request": {
+        "method": "DELETE",
+        "path": "/v1/provider/id"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Pact for delete"
+        }
+      ]
+    },
+    {
+      "description": "retrieving article data",
+      "request": {
+        "method": "GET",
+        "path": "/v1/provider/id"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "result": "from",
+          "provider": "yes"
+        },
+        "matchingRules": {
+          "body": {
+            "$.result": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            },
+            "$.provider": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "providerStates": [
+        {
+          "name": "Pact for find"
+        }
+      ]
+    },
+    {
+      "description": "retrieving article data",
+      "request": {
+        "method": "POST",
+        "path": "/v1/provider",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "data": "insert"
+        },
+        "matchingRules": {
+          "body": {
+            "$.data": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 200
+      },
+      "providerStates": [
+        {
+          "name": "Pact for insert"
+        }
+      ]
+    },
+    {
+      "description": "retrieving article data",
+      "request": {
+        "method": "PUT",
+        "path": "/v1/provider/id",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "data": "update"
+        },
+        "matchingRules": {
+          "body": {
+            "$.data": {
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ],
+              "combine": "AND"
+            }
+          }
+        }
+      },
+      "response": {
+        "status": 200
+      },
+      "providerStates": [
+        {
+          "name": "Pact for update"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "3.0.0"
+    },
+    "pact-jvm": {
+      "version": "4.0.3"
+    }
+  }
+}
