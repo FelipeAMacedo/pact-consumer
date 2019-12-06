@@ -26,24 +26,24 @@ public class FirstConsumerPactTest {
     Map<String, String> headers = MapUtils.putAll(new HashMap<String, String>(),
         new String[]{"Content-Type", "application/json"});
     
-    @Pact(provider = "api_provider", consumer = "test_consumer")
-    public RequestResponsePact findAllPact(PactDslWithProvider builder) {
-    	PactDslJsonBody findAllResponseBody = new PactDslJsonBody()
-    		.stringType("result", "from")
-    		.stringType("provider", "yes")
-    		.asBody();
-    	
-    	return builder
-            .given("Pact for find all")
-            .uponReceiving("retrieving article data")
-            	.path("/v1/provider")
-            	.method("GET")
-            .willRespondWith()
-        		.headers(headers)
-        		.status(200)
-        		.body(findAllResponseBody)
-            .toPact();
-    }
+//    @Pact(provider = "api_provider", consumer = "test_consumer")
+//    public RequestResponsePact findAllPact(PactDslWithProvider builder) {
+//    	PactDslJsonBody findAllResponseBody = new PactDslJsonBody()
+//    		.stringType("result", "from")
+//    		.stringType("provider", "yes")
+//    		.asBody();
+//    	
+//    	return builder
+//            .given("Pact for find all")
+//            .uponReceiving("retrieving article data")
+//            	.path("/v1/provider")
+//            	.method("GET")
+//            .willRespondWith()
+//        		.headers(headers)
+//        		.status(200)
+//        		.body(findAllResponseBody)
+//            .toPact();
+//    }
 
     @Pact(provider = "api_provider", consumer = "test_consumer")
     public RequestResponsePact findPact(PactDslWithProvider builder) {
@@ -113,15 +113,15 @@ public class FirstConsumerPactTest {
 		.toPact();
     }
     
-    @Test
-    @PactTestFor(pactMethod = "findAllPact")
-    public void testForFindAll(MockServer mockServer) throws IOException {
-    	ProviderPort providerAdapter = new ProviderAdapter();
-    	providerAdapter.setUrl(mockServer.getUrl() + "/v1/provider");
-    	
-    	providerAdapter.findAll();
-        assertEquals(true, true);
-    }
+//    @Test
+//    @PactTestFor(pactMethod = "findAllPact")
+//    public void testForFindAll(MockServer mockServer) throws IOException {
+//    	ProviderPort providerAdapter = new ProviderAdapter();
+//    	providerAdapter.setUrl(mockServer.getUrl() + "/v1/provider");
+//    	
+//    	providerAdapter.findAll();
+//        assertEquals(true, true);
+//    }
     
     @Test
     @PactTestFor(pactMethod = "findPact")
