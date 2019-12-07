@@ -108,7 +108,6 @@ public class FirstConsumerPactTest {
         	.path("/v1/provider/id")
         	.method("DELETE")
         .willRespondWith()
-    		.headers(headers)
     		.status(200)
 		.toPact();
     }

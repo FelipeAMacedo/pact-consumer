@@ -56,11 +56,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<profiles>
-		<profile>
-			<id>pact</id>
-			
 			<build>
 				<plugins>
 					<plugin>
@@ -78,7 +73,7 @@
 							<trimSnapshot>true</trimSnapshot>
 						</configuration>
 					</plugin>
-					<plugin>
+					<!--  <plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-surefire-plugin</artifactId>
 						<configuration>
@@ -87,11 +82,9 @@
 								<include>br.com.votorantim.**pact.**</include>
 							</includes>
 						</configuration>
-					</plugin>
+					</plugin> -->
 				</plugins>
 			</build>
-		</profile>
-	</profiles>
 	
 
 </project>
